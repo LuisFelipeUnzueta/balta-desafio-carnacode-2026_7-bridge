@@ -8,44 +8,44 @@ namespace DesignPatternChallenge
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("=== Sistema de Notificações Multi-Plataforma (Bridge Pattern) ===\n");
+            Console.WriteLine("=== Multi-Platform Notification System (Bridge Pattern) ===\n");
 
-            // Plataformas
+            // Platforms
             IPlatform web = new WebPlatform();
             IPlatform mobile = new MobilePlatform();
             IPlatform desktop = new DesktopPlatform();
 
-            // Notificações - Text
+            // Notifications - Text
             Console.WriteLine("--- Text Notifications ---");
-            Notification textWeb = new TextNotification(web, "Novo Pedido", "Você tem um novo pedido");
+            Notification textWeb = new TextNotification(web, "New Order", "You have a new order");
             textWeb.Send();
             Console.WriteLine();
 
-            Notification textMobile = new TextNotification(mobile, "Novo Pedido", "Você tem um novo pedido");
+            Notification textMobile = new TextNotification(mobile, "New Order", "You have a new order");
             textMobile.Send();
             Console.WriteLine();
 
-            // Notificações - Image
+            // Notifications - Image
             Console.WriteLine("--- Image Notifications ---");
-            Notification imageWeb = new ImageNotification(web, "Promoção", "50% de desconto!", "promo.jpg");
+            Notification imageWeb = new ImageNotification(web, "Promotion", "50% off!", "promo.jpg");
             imageWeb.Send();
             Console.WriteLine();
 
-            // Notificações - Video
+            // Notifications - Video
             Console.WriteLine("--- Video Notifications ---");
-            Notification videoMobile = new VideoNotification(mobile, "Tutorial", "Aprenda a usar o app", "tutorial.mp4");
+            Notification videoMobile = new VideoNotification(mobile, "Tutorial", "Learn how to use the app", "tutorial.mp4");
             videoMobile.Send();
             Console.WriteLine();
-            
-            Notification videoDesktop = new VideoNotification(desktop, "Tutorial", "Aprenda a usar o app", "tutorial.mp4");
+
+            Notification videoDesktop = new VideoNotification(desktop, "Tutorial", "Learn how to use the app", "tutorial.mp4");
             videoDesktop.Send();
             Console.WriteLine();
 
-            Console.WriteLine("=== CONCLUSÃO ===");
-            Console.WriteLine("✓ Abstração (Notification) separada da Implementação (Platform)");
-            Console.WriteLine("✓ Novos tipos de notificação podem ser adicionados sem mudar as plataformas");
-            Console.WriteLine("✓ Novas plataformas podem ser adicionadas sem mudar os tipos de notificação");
-            Console.WriteLine("✓ Explosão de classes evitada: 3 tipos + 3 plataformas = 6 classes (antes seriam 9)");
+            Console.WriteLine("=== CONCLUSION ===");
+            Console.WriteLine("✓ Abstraction (Notification) separated from Implementation (Platform)");
+            Console.WriteLine("✓ New notification types can be added without changing platforms");
+            Console.WriteLine("✓ New platforms can be added without changing notification types");
+            Console.WriteLine("✓ Class explosion avoided: 3 types + 3 platforms = 6 classes (previously it would be 9)");
         }
     }
 }
